@@ -126,7 +126,7 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         
         
         // imageView.userInteractionEnabled = true
-        imageView.userInteractionEnabled = false
+        imageView.userInteractionEnabled = true
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "buttonTapped:")
         imageView.addGestureRecognizer(tapGestureRecognizer)
@@ -183,26 +183,24 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        StoryDataManager.sharedInstance.pausedSound()
         
-        speechSynthesizer.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
     }
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
+        StoryDataManager.sharedInstance.pausedSound()
         speechSynthesizer.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        if SettingDataManager.sharedInstance.getAutoPlay() && pageIndex > 0 {
-            NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "autoPlaySound", userInfo: nil, repeats: false)
-        }
-        
-        
         speechSynthesizer.delegate = self
         speechSynthesizer.pauseSpeakingAtBoundary(AVSpeechBoundary.Word)
+        
+        if SettingDataManager.sharedInstance.getAutoPlay() && pageIndex > 0 {
+            NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "autoPlaySound", userInfo: nil, repeats: false)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -229,7 +227,8 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
                     
                     }, completion: { (finished: Bool) -> Void in
                         self.hasSettingView = false
-                        self.speechSynthesizer.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
+                        // self.speechSynthesizer.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
+                        self.imageView.userInteractionEnabled = false
                 })
                 
             }
