@@ -131,13 +131,8 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "buttonTapped:")
         imageView.addGestureRecognizer(tapGestureRecognizer)
         
-        if SettingDataManager.sharedInstance.getAutoPlay() {
-            NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "autoPlaySound", userInfo: nil, repeats: false)
-        }
         
         speechSynthesizer = AVSpeechSynthesizer()
-        speechSynthesizer.delegate = self
-        speechSynthesizer .pauseSpeakingAtBoundary(AVSpeechBoundary.Word)
     }
     
     override func viewWillLayoutSubviews() {
@@ -196,6 +191,18 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         speechSynthesizer.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if SettingDataManager.sharedInstance.getAutoPlay() && pageIndex > 0 {
+            NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "autoPlaySound", userInfo: nil, repeats: false)
+        }
+        
+        
+        speechSynthesizer.delegate = self
+        speechSynthesizer.pauseSpeakingAtBoundary(AVSpeechBoundary.Word)
     }
     
     override func didReceiveMemoryWarning() {
