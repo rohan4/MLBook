@@ -16,6 +16,8 @@ class Page: NSObject {
     
     var soundEffect:AVAudioPlayer!
     
+    
+    
     init(title: String?, image: UIImage?, file:NSString?, type:NSString?) {
         super.init()
         

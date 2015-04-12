@@ -12,7 +12,6 @@ import AVFoundation
 class StoryDataManager: NSObject {
     
     var pages:[Page] = []
-    
     var soundEffect:AVAudioPlayer?
     var isPlayingSound = false
     
