@@ -29,9 +29,3 @@
 - (instancetype)initWithCenterPoin:(CGPoint)centerPoint imageSize:(CGSize)imageSize image:(NSString*)image selectedImage:(NSString*)selectedImage;
 
 @end
-
-@interface YQButtonWithParse : YQButtonWithImage
-
-@property (strong, nonatomic) NSString* objectId;
-
-@end

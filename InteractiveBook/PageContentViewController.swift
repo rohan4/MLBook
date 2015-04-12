@@ -21,8 +21,14 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
     var imageView: UIImageView!
     
+    
+    
+    
     var backButton:UIButton
     var speakButton:UIButton
+    
+    
+    
     
     
     var titleView: UIView!
@@ -175,6 +181,7 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         settingView.backgroundColor = UIColor(red: 64.0/255.0, green: 64.0/255.0, blue: 64.0/255.0, alpha: 1.0)
         settingView.frame = CGRectMake(0, -settingViewHeight, CGRectGetWidth(view.frame), settingViewHeight)
         view.addSubview(settingView)
+        settingView.userInteractionEnabled = true
         
         
         settingButton.frame = CGRectMake(CGRectGetWidth(settingView.frame)-80, 0, 80, CGRectGetHeight(settingView.frame))
@@ -228,7 +235,6 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
                     }, completion: { (finished: Bool) -> Void in
                         self.hasSettingView = false
                         // self.speechSynthesizer.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
-                        self.imageView.userInteractionEnabled = false
                 })
                 
             }

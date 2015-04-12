@@ -42,8 +42,6 @@
 
 - (void)setSelected:(BOOL)selected
 {
-    
-    
     if (selected) {
         self.backgroundColor = self.selectedColor;
     }
@@ -156,15 +154,6 @@
 - (void)setBackgroundToTransparent
 {
     self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
-}
-
-@end
-
-@implementation YQButtonWithParse
-
-- (void)setObjectId:(NSString *)objectId
-{
-    _objectId = objectId;
 }
 
 @end

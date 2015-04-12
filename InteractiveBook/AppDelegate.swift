@@ -64,17 +64,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func moveToMain(){
         let mainViewController = MainStoriesViewController(nibName: nil, bundle: nil)
-        let storyViewController = StoryViewController(nibName: nil, bundle: nil)
+        // let storyViewController = StoryViewController(nibName: nil, bundle: nil)
         
-        let navigationController = UINavigationController(rootViewController: storyViewController)
+        let navigationController = UINavigationController(rootViewController: mainViewController)
         navigationController.setNavigationBarHidden(true, animated: false)
-        
         
         
         createLocalPages()
         window?.rootViewController = navigationController
-        
-
     }
     
     func createLocalPages() {
