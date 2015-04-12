@@ -28,6 +28,8 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
     var hasSettingView: Bool = false
     var settingViewHeight: CGFloat = 44
     
+    var settingButton: UIButton
+    
     var speechSynthesizer: AVSpeechSynthesizer!
     
     convenience init(pageIndex:Int?) {
@@ -53,6 +55,10 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         
         // init value, will be changed later.
         self.pageIndex = 0
+        
+        
+        settingButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+        
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
@@ -85,6 +91,13 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         // view.addSubview(speakButton)
         
         
+        settingButton.setTitle("Setting", forState: UIControlState.Normal)
+        // settingButton.backgroundColor = UIColor.blackColor()
+        // settingButton.layer.cornerRadius = CGFloat(5.0)
+        settingButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        settingButton.addTarget(self, action: "settingButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        
         
     }
 
@@ -98,7 +111,9 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         // Do any additional setup after loading the view.
         
         
-        imageView.userInteractionEnabled = true
+        // imageView.userInteractionEnabled = true
+        imageView.userInteractionEnabled = false
+        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "buttonTapped:")
         imageView.addGestureRecognizer(tapGestureRecognizer)
         
@@ -142,6 +157,9 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         settingView.frame = CGRectMake(0, -settingViewHeight, CGRectGetWidth(view.frame), settingViewHeight)
         view.addSubview(settingView)
         
+        
+        settingButton.frame = CGRectMake(CGRectGetWidth(settingView.frame)-80, 0, 80, CGRectGetHeight(settingView.frame))
+        settingView.addSubview(settingButton)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -180,7 +198,7 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
                     
                     }, completion: { (finished: Bool) -> Void in
                         self.hasSettingView = false
-                        
+                        self.speechSynthesizer.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
                 })
                 
             }
@@ -237,7 +255,14 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
     
     
-    
+    func settingButtonAction(sender:UIButton!) {
+        
+        
+        
+        
+        
+        
+    }
     
     
     
