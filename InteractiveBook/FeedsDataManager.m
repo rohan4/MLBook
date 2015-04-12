@@ -52,10 +52,10 @@
                           failure:(void (^)(NSError *error))failureCompletion {
     
     PFQuery *query = [PFQuery queryWithClassName:@"Page"];
-    [query whereKey:@"isPublished" equalTo:[NSNumber numberWithBool:NO]];
+    [query whereKey:@"isPublished" equalTo:[NSNumber numberWithBool:YES]];
     [query setLimit:self.trendingObjectsPerPage];
     query.skip = self.trendingObjectsPerPage*currentPage;
-    [query orderByDescending:@"pageIndex"];
+    [query orderByAscending:@"pageIndex"];
     [query addDescendingOrder:@"releasedAt"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -70,6 +70,11 @@
                 [page.image loadImage];
                 [tempFeeds addObject:page];
             }
+            
+            if (currentPage == 0){
+                self.trendingObjects = [[NSMutableArray alloc] init];
+            }
+            [self.trendingObjects addObjectsFromArray:tempFeeds];
             
             BOOL tempHasMore;
             if (objects.count < self.trendingObjectsPerPage) {

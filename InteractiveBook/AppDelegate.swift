@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         SettingDataManager.sharedInstance.fetchDataFromNSUserDefaults()
         ReadPagingDataManger.sharedInstance.fetchDataFromNSUserDefaults()
-        createLocalPages()
+        
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         windowBackground.backgroundColor = UIColor.redColor()
@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navigationController
         
         
-        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "moveToMain", userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: "moveToMain", userInfo: nil, repeats: false)
         
         
         
@@ -71,13 +71,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        
+        createLocalPages()
         window?.rootViewController = navigationController
         
 
     }
     
     func createLocalPages() {
+        
+        for product in FeedsDataManager.sharedManager().getTrendingObjects() {
+            let temp = product as! Product
+            let page = Page(title: temp.title, image: temp.image.image, file: "ButtonTap", type: "wav")
+            StoryDataManager.sharedInstance.addPage(page)
+        }
+        
+        /*
         let page1 = Page(title: "Enter your text here. When you are done, hit the play button below for the AVSpeechSynthesizer class to start reading your text. Pause it at any time. Resume it at any time.", image: UIImage(named: "page0.png"), file: "ButtonTap", type: "wav")
         let page2 = Page(title: "Enter your text here. When you are done, hit the play button below for the AVSpeechSynthesizer class to start reading your text. Pause it at any time. Resume it at any time.", image: UIImage(named: "page1.png"), file: "ButtonTap", type: "wav")
         let page3 = Page(title: "Enter your text here. When you are done, hit the play button below for the AVSpeechSynthesizer class to start reading your text. Pause it at any time. Resume it at any time.", image: UIImage(named: "page2.png"), file: "ButtonTap", type: "wav")
@@ -91,6 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         StoryDataManager.sharedInstance.addPage(page4)
         StoryDataManager.sharedInstance.addPage(page5)
         StoryDataManager.sharedInstance.addPage(page6)
+        */
     }
     
     func applicationWillResignActive(application: UIApplication) {
