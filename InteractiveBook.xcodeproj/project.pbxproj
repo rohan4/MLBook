@@ -32,6 +32,7 @@
 		8D3CFAD71AD5AF360015F493 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3CFAD61AD5AF360015F493 /* SystemConfiguration.framework */; };
 		8D3CFAD91AD5AF3F0015F493 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3CFAD81AD5AF3F0015F493 /* libz.dylib */; };
 		8D3CFADB1AD5AF470015F493 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3CFADA1AD5AF470015F493 /* libsqlite3.dylib */; };
+		8D5673EF1AD9EE0C00916C6E /* images-2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8D5673EE1AD9EE0C00916C6E /* images-2.jpeg */; };
 		8D7D66631AD970DE00F22CF8 /* ButtonTap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D66601AD970DE00F22CF8 /* ButtonTap.wav */; };
 		8D7D66641AD970DE00F22CF8 /* HallOfTheMountainKing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D66611AD970DE00F22CF8 /* HallOfTheMountainKing.mp3 */; };
 		8D7D66651AD970DE00F22CF8 /* SecondBeep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D66621AD970DE00F22CF8 /* SecondBeep.wav */; };
@@ -80,6 +81,7 @@
 		8D3CFAD61AD5AF360015F493 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8D3CFAD81AD5AF3F0015F493 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8D3CFADA1AD5AF470015F493 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		8D5673EE1AD9EE0C00916C6E /* images-2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "images-2.jpeg"; sourceTree = SOURCE_ROOT; };
 		8D7D66601AD970DE00F22CF8 /* ButtonTap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ButtonTap.wav; path = Sounds/ButtonTap.wav; sourceTree = SOURCE_ROOT; };
 		8D7D66611AD970DE00F22CF8 /* HallOfTheMountainKing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = HallOfTheMountainKing.mp3; path = Sounds/HallOfTheMountainKing.mp3; sourceTree = SOURCE_ROOT; };
 		8D7D66621AD970DE00F22CF8 /* SecondBeep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = SecondBeep.wav; path = Sounds/SecondBeep.wav; sourceTree = SOURCE_ROOT; };
@@ -211,6 +213,7 @@
 				8D3CFAB41AD5A5990015F493 /* StoryViewController.swift */,
 				8D2078A91AD8A0BE0007FD69 /* PageContentViewController.swift */,
 				8D3313031AD8CABC00C741E1 /* SettingViewController.swift */,
+				8D5673EE1AD9EE0C00916C6E /* images-2.jpeg */,
 				8D7D66661AD970E900F22CF8 /* Sounds */,
 				8D3CFAB21AD5A5400015F493 /* Class */,
 				8D3CFAB31AD5A54A0015F493 /* DataManager */,
@@ -329,6 +332,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D5673EF1AD9EE0C00916C6E /* images-2.jpeg in Resources */,
 				8D7D66651AD970DE00F22CF8 /* SecondBeep.wav in Resources */,
 				8D9484741ACDCF7900A06442 /* Main.storyboard in Resources */,
 				8D9484791ACDCF7900A06442 /* LaunchScreen.xib in Resources */,
