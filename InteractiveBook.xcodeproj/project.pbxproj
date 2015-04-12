@@ -34,6 +34,7 @@
 		8D3CFADB1AD5AF470015F493 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3CFADA1AD5AF470015F493 /* libsqlite3.dylib */; };
 		8D5673EF1AD9EE0C00916C6E /* images-2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8D5673EE1AD9EE0C00916C6E /* images-2.jpeg */; };
 		8D5673F11AD9F09400916C6E /* the-imitation-game-38-high-resolution-wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8D5673F01AD9F09400916C6E /* the-imitation-game-38-high-resolution-wallpaper.jpg */; };
+		8D5673F81AD9F19B00916C6E /* NSParseImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D5673F71AD9F19B00916C6E /* NSParseImage.m */; };
 		8D7D66631AD970DE00F22CF8 /* ButtonTap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D66601AD970DE00F22CF8 /* ButtonTap.wav */; };
 		8D7D66641AD970DE00F22CF8 /* HallOfTheMountainKing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D66611AD970DE00F22CF8 /* HallOfTheMountainKing.mp3 */; };
 		8D7D66651AD970DE00F22CF8 /* SecondBeep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D66621AD970DE00F22CF8 /* SecondBeep.wav */; };
@@ -84,6 +85,9 @@
 		8D3CFADA1AD5AF470015F493 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		8D5673EE1AD9EE0C00916C6E /* images-2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "images-2.jpeg"; sourceTree = SOURCE_ROOT; };
 		8D5673F01AD9F09400916C6E /* the-imitation-game-38-high-resolution-wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "the-imitation-game-38-high-resolution-wallpaper.jpg"; sourceTree = SOURCE_ROOT; };
+		8D5673F21AD9F17F00916C6E /* InteractiveBook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InteractiveBook-Bridging-Header.h"; sourceTree = "<group>"; };
+		8D5673F61AD9F19B00916C6E /* NSParseImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSParseImage.h; sourceTree = "<group>"; };
+		8D5673F71AD9F19B00916C6E /* NSParseImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSParseImage.m; sourceTree = "<group>"; };
 		8D7D66601AD970DE00F22CF8 /* ButtonTap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ButtonTap.wav; path = Sounds/ButtonTap.wav; sourceTree = SOURCE_ROOT; };
 		8D7D66611AD970DE00F22CF8 /* HallOfTheMountainKing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = HallOfTheMountainKing.mp3; path = Sounds/HallOfTheMountainKing.mp3; sourceTree = SOURCE_ROOT; };
 		8D7D66621AD970DE00F22CF8 /* SecondBeep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = SecondBeep.wav; path = Sounds/SecondBeep.wav; sourceTree = SOURCE_ROOT; };
@@ -140,6 +144,8 @@
 			children = (
 				8D3313051AD8DB9500C741E1 /* Page.swift */,
 				8D3313091AD8DE2400C741E1 /* NSParseObject.swift */,
+				8D5673F61AD9F19B00916C6E /* NSParseImage.h */,
+				8D5673F71AD9F19B00916C6E /* NSParseImage.m */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -210,6 +216,7 @@
 		8D9484681ACDCF7900A06442 /* InteractiveBook */ = {
 			isa = PBXGroup;
 			children = (
+				8D5673F21AD9F17F00916C6E /* InteractiveBook-Bridging-Header.h */,
 				8D94846B1ACDCF7900A06442 /* AppDelegate.swift */,
 				8D3CFAA31AD597BC0015F493 /* MainStoriesViewController.swift */,
 				8D3CFAB41AD5A5990015F493 /* StoryViewController.swift */,
@@ -368,6 +375,7 @@
 				8D94846F1ACDCF7900A06442 /* InteractiveBook.xcdatamodeld in Sources */,
 				8D3313041AD8CABC00C741E1 /* SettingViewController.swift in Sources */,
 				8D3CFAAF1AD5A3430015F493 /* ReadPagingDataManger.swift in Sources */,
+				8D5673F81AD9F19B00916C6E /* NSParseImage.m in Sources */,
 				8D3CFAB51AD5A5990015F493 /* StoryViewController.swift in Sources */,
 				8D3CFAA41AD597BC0015F493 /* MainStoriesViewController.swift in Sources */,
 				8D3313081AD8DC4B00C741E1 /* StoryDataManager.swift in Sources */,
@@ -495,6 +503,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -506,6 +515,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "InteractiveBook/InteractiveBook-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -513,6 +524,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -524,6 +536,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "InteractiveBook/InteractiveBook-Bridging-Header.h";
 			};
 			name = Release;
 		};
