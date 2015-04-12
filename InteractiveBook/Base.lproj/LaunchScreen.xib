@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images-2.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="gf5-Cn-d26">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="the-imitation-game-38-high-resolution-wallpaper.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="gf5-Cn-d26">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                 </imageView>
             </subviews>
@@ -28,6 +28,6 @@
         </view>
     </objects>
     <resources>
-        <image name="images-2.jpeg" width="284" height="177"/>
+        <image name="the-imitation-game-38-high-resolution-wallpaper.jpg" width="620" height="400"/>
     </resources>
 </document>
