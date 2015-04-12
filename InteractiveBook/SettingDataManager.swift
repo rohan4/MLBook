@@ -29,8 +29,7 @@ class SettingDataManager: NSObject {
     func getAutoPlay()->Bool {
         let tempIsAutoPlay = isAutoPlay.integerValue
         if tempIsAutoPlay == 0 {
-            // return false
-            return true
+            return false
         }
         else {
             return true

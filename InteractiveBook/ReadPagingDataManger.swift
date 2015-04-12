@@ -42,8 +42,7 @@ class ReadPagingDataManger: NSObject {
     }
     
     func getTempPagingNumber() ->Int {
-        return 0
-        // return tempPagingNumber.integerValue
+        return tempPagingNumber.integerValue
     }
     
     
