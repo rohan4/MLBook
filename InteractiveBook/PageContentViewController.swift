@@ -24,6 +24,9 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
     var titleView: UIView!
     
+    var settingView: UIView!
+    var hasSettingView: Bool = false
+    var settingViewHeight: CGFloat = 44
     
     var speechSynthesizer: AVSpeechSynthesizer!
     
@@ -37,11 +40,13 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         titleLabel.alpha = 0.1
         titleLabel.textColor = UIColor.whiteColor()
         // titleLabel.font = UIFont.boldSystemFontOfSize(17.0)
+        
         titleLabel.font = UIFont(name: "Lato-Semibold", size: 17)
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = NSTextAlignment.Center
         
         imageView = UIImageView()
+        settingView = UIImageView()
         
         backButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
         speakButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
@@ -80,6 +85,7 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         // view.addSubview(speakButton)
         
         
+        
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -108,6 +114,16 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
+        var test1: String = titleLabel.text!
+        var length = test1.lengthOfBytesUsingEncoding(NSUTF16StringEncoding)
+        
+        if length < 50 {
+            self.titleLabel.font = UIFont(name: "Lato-Bold", size: 23)
+        }
+        else {
+            self.titleLabel.font = UIFont(name: "Lato-Semibold", size: 15)
+        }
+        
         
         titleView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.1)
         view.addSubview(titleView)
@@ -120,13 +136,23 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
             self.titleLabel.alpha = 1.0
             self.titleView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5)
         })
-
+        
+        
+        settingView.backgroundColor = UIColor(red: 64.0/255.0, green: 64.0/255.0, blue: 64.0/255.0, alpha: 1.0)
+        settingView.frame = CGRectMake(0, -settingViewHeight, CGRectGetWidth(view.frame), settingViewHeight)
+        view.addSubview(settingView)
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         StoryDataManager.sharedInstance.pausedSound()
         
+        speechSynthesizer.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
         speechSynthesizer.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
     }
     
@@ -137,12 +163,40 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
     func autoPlaySound(){
         StoryDataManager.sharedInstance.playSound(self.pageIndex)
+        speechSynthesizer.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
         playSiriSound()
     }
     
     func buttonTapped(sender: UITapGestureRecognizer) {
         if (sender.state == .Ended) {
             println("worked")
+            
+            
+            if hasSettingView {
+                
+                UIView.animateWithDuration(0.4, delay: 0.1, usingSpringWithDamping: 2.0, initialSpringVelocity: 5.0, options: nil, animations: { () -> Void in
+                    
+                    self.settingView.frame = CGRectMake(0, -self.settingViewHeight, CGRectGetWidth(self.view.frame), self.settingViewHeight)
+                    
+                    }, completion: { (finished: Bool) -> Void in
+                        self.hasSettingView = false
+                        
+                })
+                
+            }
+            else {
+                
+                UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 2.0, initialSpringVelocity: 5.0, options: nil, animations: { () -> Void in
+                    
+                    self.settingView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), self.settingViewHeight)
+                    
+                    }, completion: { (finished: Bool) -> Void in
+                        self.hasSettingView = true
+                        
+                })
+                
+            }
+            
         }
     }
     
@@ -154,6 +208,7 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
     func speakButtonAction(sender:UIButton!) {
         StoryDataManager.sharedInstance.playSound(pageIndex)
+        speechSynthesizer.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
         playSiriSound()
     }
     
@@ -167,7 +222,7 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
     func speechSynthesizer(synthesizer: AVSpeechSynthesizer!, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance!) {
         let text = NSMutableAttributedString(string: titleLabel.text!)
-        text.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: characterRange)
+        text.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 254.0/255.0, green: 108.0/255.0, blue: 113.0/255.0, alpha: 1.0), range: characterRange)
         titleLabel.attributedText = text
     }
     
