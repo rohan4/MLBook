@@ -15,6 +15,8 @@ import Bolts
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    let windowBackground: UIImageView =  UIImageView()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -40,16 +42,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ReadPagingDataManger.sharedInstance.fetchDataFromNSUserDefaults()
         createLocalPages()
         
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        windowBackground.backgroundColor = UIColor.redColor()
+        window?.makeKeyAndVisible()
+        window?.insertSubview(windowBackground, atIndex: 0)
         
-        let mainViewController = MainStoriesViewController(nibName: nil, bundle: nil)
-        let navigationController = UINavigationController(rootViewController: mainViewController)
+        let tempViewController = TempViewController(nibName: nil, bundle: nil)
+        let navigationController = UINavigationController(rootViewController: tempViewController)
         navigationController.setNavigationBarHidden(true, animated: false)
         
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
         window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
+        
+        
+        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "moveToMain", userInfo: nil, repeats: false)
+        
+        
         
         return true
+    }
+    
+    func moveToMain(){
+        let mainViewController = MainStoriesViewController(nibName: nil, bundle: nil)
+        let storyViewController = StoryViewController(nibName: nil, bundle: nil)
+        
+        let navigationController = UINavigationController(rootViewController: storyViewController)
+        navigationController.setNavigationBarHidden(true, animated: false)
+        
+        
+        
+        
+        window?.rootViewController = navigationController
+        
+
     }
     
     func createLocalPages() {

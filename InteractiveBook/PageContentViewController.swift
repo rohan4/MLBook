@@ -67,7 +67,7 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         backButton.setTitleColor(UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 240.0/255.0), forState: UIControlState.Normal)
         backButton.layer.cornerRadius = CGFloat(5.0)
         backButton.addTarget(self, action: "backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        view.addSubview(backButton)
+        // view.addSubview(backButton)
         
         speakButton.frame = CGRectMake(CGRectGetWidth(view.frame)-90, CGRectGetHeight(view.frame)-40, 80, 30)
         speakButton.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleTopMargin
@@ -76,7 +76,7 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         speakButton.setTitleColor(UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 240.0/255.0), forState: UIControlState.Normal)
         speakButton.layer.cornerRadius = CGFloat(5.0)
         speakButton.addTarget(self, action: "speakButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        view.addSubview(speakButton)
+        // view.addSubview(speakButton)
         
         
     }

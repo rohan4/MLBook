@@ -67,6 +67,7 @@
             
             for (PFObject *object in objects){
                 Product *page = [[Product alloc] initWithParseObject:object];
+                [page.image loadImage];
                 [tempFeeds addObject:page];
             }
             
@@ -77,6 +78,8 @@
             else {
                 tempHasMore = YES;
             }
+            
+            
             
             successCompletion([tempFeeds copy], tempHasMore);
         }
