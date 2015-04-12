@@ -209,7 +209,7 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
     }
     
     func autoPlaySound(){
-        StoryDataManager.sharedInstance.playSound(self.pageIndex)
+        // StoryDataManager.sharedInstance.playSound(self.pageIndex)
         speechSynthesizer.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
         playSiriSound()
     }
