@@ -31,6 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
         
+        
+        FeedsDataManager.sharedManager().loadTrendingDataWithPaging()
+        
+        
+        
         SettingDataManager.sharedInstance.fetchDataFromNSUserDefaults()
         ReadPagingDataManger.sharedInstance.fetchDataFromNSUserDefaults()
         createLocalPages()

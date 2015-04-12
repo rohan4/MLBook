@@ -31,6 +31,8 @@ class StoryViewController: UIViewController, UIPageViewControllerDataSource, UIP
         view.backgroundColor = UIColor.clearColor()
         
         reset()
+        
+        
     }
     
     override func didReceiveMemoryWarning() {

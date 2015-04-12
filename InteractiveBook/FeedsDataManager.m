@@ -9,6 +9,7 @@
 #import "FeedsDataManager.h"
 #import <Parse/Parse.h>
 #import <InteractiveBook-Swift.h>
+#import "NSParseImage.h"
 
 @interface FeedsDataManager()
 @property(nonatomic) int trendingObjectsPerPage;
@@ -37,6 +38,15 @@
     return self;
 }
 
+-(void)loadTrendingDataWithPaging {
+    [self loadTrendingDataWithPaging:0 success:^(NSArray *objects, BOOL hasMore) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+
 -(void)loadTrendingDataWithPaging:(int)currentPage
                           success:(void (^)(NSArray *objects, BOOL hasMore))successCompletion
                           failure:(void (^)(NSError *error))failureCompletion {
@@ -53,23 +63,22 @@
             failureCompletion(error);
         }
         else {
-            NSMutableArray *tempProducts = [[NSMutableArray alloc] init];
+            NSMutableArray *tempFeeds = [[NSMutableArray alloc] init];
             
             for (PFObject *object in objects){
-                Product *product = [[Product alloc] initWithParseObject:object];
-                // [product.iconImage loadImage];
-                [tempProducts addObject:product];
+                Product *page = [[Product alloc] initWithParseObject:object];
+                [tempFeeds addObject:page];
             }
             
             BOOL tempHasMore;
-            
             if (objects.count < self.trendingObjectsPerPage) {
                 tempHasMore = NO;
             }
             else {
                 tempHasMore = YES;
             }
-            successCompletion([tempProducts copy], tempHasMore);
+            
+            successCompletion([tempFeeds copy], tempHasMore);
         }
     }];
 }

@@ -12,6 +12,7 @@
 
 +(id)sharedManager;
 
+-(void)loadTrendingDataWithPaging;
 -(void)loadTrendingDataWithPaging:(int)currentPage
                           success:(void (^)(NSArray *objects, BOOL hasMore))successCompletion
                           failure:(void (^)(NSError *error))failureCompletion;
