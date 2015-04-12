@@ -95,8 +95,8 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         backButton.autoresizingMask = UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleBottomMargin
         backButton.setTitle("Back", forState: UIControlState.Normal)
         // backButton.backgroundColor = UIColor.blackColor()
-        backButton.setTitleColor(UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 240.0/255.0), forState: UIControlState.Normal)
-        backButton.layer.cornerRadius = CGFloat(5.0)
+        backButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        // backButton.layer.cornerRadius = CGFloat(5.0)
         backButton.addTarget(self, action: "backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         // view.addSubview(backButton)
         
@@ -262,6 +262,7 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         speechSynthesizer.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
         playSiriSound()
     }
+    
     
     func playSiriSound(){
         let utterance = AVSpeechUtterance(string: titleLabel.text)

@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navigationController
         
         
-        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "moveToMain", userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "moveToMain", userInfo: nil, repeats: false)
         
         
         

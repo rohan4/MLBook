@@ -15,7 +15,6 @@ class StoryViewController: UIViewController, UIPageViewControllerDataSource, UIP
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
     }
     
     
@@ -31,8 +30,6 @@ class StoryViewController: UIViewController, UIPageViewControllerDataSource, UIP
         view.backgroundColor = UIColor.clearColor()
         
         reset()
-        
-        
     }
     
     override func didReceiveMemoryWarning() {

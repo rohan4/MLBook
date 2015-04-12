@@ -12,22 +12,33 @@ class MainStoriesViewController: UIViewController {
     
     var startButton:UIButton
     var settingButton:UIButton
-    
+
+    var imageView: UIImageView!
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         
         startButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
         settingButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
         
+        imageView = UIImageView()
+        
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
+        imageView.frame = CGRectMake(0, 0, CGRectGetWidth(view.frame), CGRectGetHeight(view.frame))
+        imageView.image = UIImage(named: "the-imitation-game-38-high-resolution-wallpaper.jpg")
+        imageView.contentMode = UIViewContentMode.ScaleAspectFill
+        view.addSubview(imageView)
+        
         startButton.setTitle("Start", forState: UIControlState.Normal)
-        startButton.backgroundColor = UIColor.blackColor()
+        startButton.backgroundColor = UIColor(red: 64.0/255.0, green: 64.0/255.0, blue: 64.0/255.0, alpha: 1.0)
+        startButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         startButton.layer.cornerRadius = CGFloat(5.0)
         startButton.addTarget(self, action: "startButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(startButton)
         
         settingButton.setTitle("Setting", forState: UIControlState.Normal)
-        settingButton.backgroundColor = UIColor.blackColor()
+        settingButton.backgroundColor = UIColor(red: 64.0/255.0, green: 64.0/255.0, blue: 64.0/255.0, alpha: 1.0)
+        settingButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         settingButton.layer.cornerRadius = CGFloat(5.0)
         settingButton.addTarget(self, action: "settingButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(settingButton)
