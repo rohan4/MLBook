@@ -44,6 +44,8 @@
 		8D5674141AD9F45D00916C6E /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D5674091AD9F45D00916C6E /* AFURLRequestSerialization.m */; };
 		8D5674151AD9F45D00916C6E /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D56740B1AD9F45D00916C6E /* AFURLResponseSerialization.m */; };
 		8D5674161AD9F45D00916C6E /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D56740D1AD9F45D00916C6E /* AFURLSessionManager.m */; };
+		8D5674191AD9F84B00916C6E /* FeedsDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D5674181AD9F84B00916C6E /* FeedsDataManager.m */; };
+		8D56741B1AD9F8B500916C6E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D56741A1AD9F8B500916C6E /* Product.swift */; };
 		8D7D66631AD970DE00F22CF8 /* ButtonTap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D66601AD970DE00F22CF8 /* ButtonTap.wav */; };
 		8D7D66641AD970DE00F22CF8 /* HallOfTheMountainKing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D66611AD970DE00F22CF8 /* HallOfTheMountainKing.mp3 */; };
 		8D7D66651AD970DE00F22CF8 /* SecondBeep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D66621AD970DE00F22CF8 /* SecondBeep.wav */; };
@@ -116,6 +118,9 @@
 		8D56740B1AD9F45D00916C6E /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		8D56740C1AD9F45D00916C6E /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		8D56740D1AD9F45D00916C6E /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		8D5674171AD9F84B00916C6E /* FeedsDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedsDataManager.h; sourceTree = "<group>"; };
+		8D5674181AD9F84B00916C6E /* FeedsDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedsDataManager.m; sourceTree = "<group>"; };
+		8D56741A1AD9F8B500916C6E /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		8D7D66601AD970DE00F22CF8 /* ButtonTap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ButtonTap.wav; path = Sounds/ButtonTap.wav; sourceTree = SOURCE_ROOT; };
 		8D7D66611AD970DE00F22CF8 /* HallOfTheMountainKing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = HallOfTheMountainKing.mp3; path = Sounds/HallOfTheMountainKing.mp3; sourceTree = SOURCE_ROOT; };
 		8D7D66621AD970DE00F22CF8 /* SecondBeep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = SecondBeep.wav; path = Sounds/SecondBeep.wav; sourceTree = SOURCE_ROOT; };
@@ -171,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				8D3313051AD8DB9500C741E1 /* Page.swift */,
+				8D56741A1AD9F8B500916C6E /* Product.swift */,
 				8D3313091AD8DE2400C741E1 /* NSParseObject.swift */,
 				8D5673F61AD9F19B00916C6E /* NSParseImage.h */,
 				8D5673F71AD9F19B00916C6E /* NSParseImage.m */,
@@ -184,6 +190,8 @@
 				8D7D66671AD97B4400F22CF8 /* SettingDataManager.swift */,
 				8D3CFAAE1AD5A3430015F493 /* ReadPagingDataManger.swift */,
 				8D3313071AD8DC4B00C741E1 /* StoryDataManager.swift */,
+				8D5674171AD9F84B00916C6E /* FeedsDataManager.h */,
+				8D5674181AD9F84B00916C6E /* FeedsDataManager.m */,
 			);
 			name = DataManager;
 			sourceTree = "<group>";
@@ -442,11 +450,13 @@
 				8D3313061AD8DB9500C741E1 /* Page.swift in Sources */,
 				8D94846F1ACDCF7900A06442 /* InteractiveBook.xcdatamodeld in Sources */,
 				8D5674121AD9F45D00916C6E /* AFSecurityPolicy.m in Sources */,
+				8D56741B1AD9F8B500916C6E /* Product.swift in Sources */,
 				8D3313041AD8CABC00C741E1 /* SettingViewController.swift in Sources */,
 				8D5674141AD9F45D00916C6E /* AFURLRequestSerialization.m in Sources */,
 				8D3CFAAF1AD5A3430015F493 /* ReadPagingDataManger.swift in Sources */,
 				8D5674151AD9F45D00916C6E /* AFURLResponseSerialization.m in Sources */,
 				8D5673F81AD9F19B00916C6E /* NSParseImage.m in Sources */,
+				8D5674191AD9F84B00916C6E /* FeedsDataManager.m in Sources */,
 				8D3CFAB51AD5A5990015F493 /* StoryViewController.swift in Sources */,
 				8D5674101AD9F45D00916C6E /* AFHTTPSessionManager.m in Sources */,
 				8D3CFAA41AD597BC0015F493 /* MainStoriesViewController.swift in Sources */,
