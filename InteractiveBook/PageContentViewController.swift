@@ -37,7 +37,7 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
     var hasSettingView: Bool = false
     var settingViewHeight: CGFloat = 44
     
-    var settingButton: UIButton
+    // var settingButton: UIButton
     
     var speechSynthesizer: AVSpeechSynthesizer!
     
@@ -71,13 +71,12 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         settingView = UIImageView()
         
         backButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-        speakButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
         
         // init value, will be changed later.
         self.pageIndex = 0
         
         
-        settingButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+        speakButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
         
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -101,6 +100,7 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         backButton.addTarget(self, action: "backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         // view.addSubview(backButton)
         
+        /*
         speakButton.frame = CGRectMake(CGRectGetWidth(view.frame)-90, CGRectGetHeight(view.frame)-40, 80, 30)
         speakButton.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleTopMargin
         speakButton.setTitle("Play", forState: UIControlState.Normal)
@@ -109,15 +109,13 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         speakButton.layer.cornerRadius = CGFloat(5.0)
         speakButton.addTarget(self, action: "speakButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         // view.addSubview(speakButton)
+        */
         
-        
-        settingButton.setTitle("Setting", forState: UIControlState.Normal)
+        speakButton.setTitle("Speak", forState: UIControlState.Normal)
         // settingButton.backgroundColor = UIColor.blackColor()
         // settingButton.layer.cornerRadius = CGFloat(5.0)
-        settingButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        settingButton.addTarget(self, action: "settingButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        
+        speakButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        speakButton.addTarget(self, action: "speakButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         
     }
 
@@ -184,8 +182,8 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         settingView.userInteractionEnabled = true
         
         
-        settingButton.frame = CGRectMake(CGRectGetWidth(settingView.frame)-80, 0, 80, CGRectGetHeight(settingView.frame))
-        settingView.addSubview(settingButton)
+        speakButton.frame = CGRectMake(CGRectGetWidth(settingView.frame)-80, 0, 80, CGRectGetHeight(settingView.frame))
+        settingView.addSubview(speakButton)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -216,7 +214,7 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
     }
     
     func autoPlaySound(){
-        // StoryDataManager.sharedInstance.playSound(self.pageIndex)
+        StoryDataManager.sharedInstance.playSound(self.pageIndex)
         speechSynthesizer.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
         playSiriSound()
     }
@@ -234,7 +232,6 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
                     
                     }, completion: { (finished: Bool) -> Void in
                         self.hasSettingView = false
-                        // self.speechSynthesizer.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
                 })
                 
             }
@@ -274,6 +271,8 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         speechSynthesizer.speakUtterance(utterance)
     }
     
+    
+    // speed synthesizer delegate
     func speechSynthesizer(synthesizer: AVSpeechSynthesizer!, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance!) {
         let text = NSMutableAttributedString(string: titleLabel.text!)
         text.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 254.0/255.0, green: 108.0/255.0, blue: 113.0/255.0, alpha: 1.0), range: characterRange)
@@ -290,21 +289,6 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
     func speechSynthesizer(synthesizer: AVSpeechSynthesizer!, didStartSpeechUtterance utterance: AVSpeechUtterance!) {
         titleLabel.attributedText = NSAttributedString(string: titleLabel.text!)
     }
-    
-    
-    
-    
-    func settingButtonAction(sender:UIButton!) {
-        
-        
-        
-        
-        
-        
-    }
-    
-    
-    
     
     
 }
