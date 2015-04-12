@@ -16,6 +16,9 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
     var pageIndex: Int
     
     var titleLabel: UILabel!
+    
+    var pageNumberLabel: UILabel!
+    
     var imageView: UIImageView!
     
     var backButton:UIButton
@@ -46,6 +49,17 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         titleLabel.font = UIFont(name: "Lato-Semibold", size: 17)
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = NSTextAlignment.Center
+        
+        pageNumberLabel = UILabel()
+        pageNumberLabel.alpha = 0.1
+        pageNumberLabel.textColor = UIColor.whiteColor()
+        // titleLabel.font = UIFont.boldSystemFontOfSize(17.0)
+        
+        pageNumberLabel.font = UIFont(name: "Lato-Semibold", size: 17)
+        pageNumberLabel.numberOfLines = 0
+        pageNumberLabel.textAlignment = NSTextAlignment.Center
+        
+        
         
         imageView = UIImageView()
         settingView = UIImageView()
@@ -140,12 +154,22 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         }
         
         
+        
+        
         titleView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.1)
         view.addSubview(titleView)
         
         titleLabel.frame = CGRectMake(0, 0, CGRectGetWidth(view.frame)-200, 80)
         titleLabel.center = titleView.center
         view.addSubview(titleLabel)
+        
+        
+        pageNumberLabel.text = "page"
+        pageNumberLabel.center = titleView.center
+        pageNumberLabel.frame = CGRectMake(0, CGRectGetMinY(pageNumberLabel.frame), 100, 80)
+        
+        // view.addSubview(pageNumberLabel)
+        
         
         UIView.animateWithDuration(1.0, animations: { () -> Void in
             self.titleLabel.alpha = 1.0
@@ -246,6 +270,9 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
     func speechSynthesizer(synthesizer: AVSpeechSynthesizer!, didFinishSpeechUtterance utterance: AVSpeechUtterance!) {
         titleLabel.attributedText = NSAttributedString(string: titleLabel.text!)
+        println("finsihed")
+        
+        
     }
     
     func speechSynthesizer(synthesizer: AVSpeechSynthesizer!, didStartSpeechUtterance utterance: AVSpeechUtterance!) {
