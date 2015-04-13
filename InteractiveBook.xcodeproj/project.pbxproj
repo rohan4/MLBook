@@ -67,6 +67,7 @@
 		8D7D66641AD970DE00F22CF8 /* HallOfTheMountainKing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D66611AD970DE00F22CF8 /* HallOfTheMountainKing.mp3 */; };
 		8D7D66651AD970DE00F22CF8 /* SecondBeep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D66621AD970DE00F22CF8 /* SecondBeep.wav */; };
 		8D7D66681AD97B4400F22CF8 /* SettingDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7D66671AD97B4400F22CF8 /* SettingDataManager.swift */; };
+		8D8639191ADC030900D2DA9F /* CheckConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8639181ADC030900D2DA9F /* CheckConnectivity.swift */; };
 		8D94846C1ACDCF7900A06442 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94846B1ACDCF7900A06442 /* AppDelegate.swift */; };
 		8D94846F1ACDCF7900A06442 /* InteractiveBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D94846D1ACDCF7900A06442 /* InteractiveBook.xcdatamodeld */; };
 		8D9484741ACDCF7900A06442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D9484721ACDCF7900A06442 /* Main.storyboard */; };
@@ -160,6 +161,7 @@
 		8D7D66611AD970DE00F22CF8 /* HallOfTheMountainKing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = HallOfTheMountainKing.mp3; path = Sounds/HallOfTheMountainKing.mp3; sourceTree = SOURCE_ROOT; };
 		8D7D66621AD970DE00F22CF8 /* SecondBeep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = SecondBeep.wav; path = Sounds/SecondBeep.wav; sourceTree = SOURCE_ROOT; };
 		8D7D66671AD97B4400F22CF8 /* SettingDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDataManager.swift; sourceTree = "<group>"; };
+		8D8639181ADC030900D2DA9F /* CheckConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckConnectivity.swift; sourceTree = "<group>"; };
 		8D9484661ACDCF7900A06442 /* InteractiveBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InteractiveBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D94846A1ACDCF7900A06442 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D94846B1ACDCF7900A06442 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				8D3CFAB41AD5A5990015F493 /* StoryViewController.swift */,
 				8D2078A91AD8A0BE0007FD69 /* PageContentViewController.swift */,
 				8D3313031AD8CABC00C741E1 /* SettingViewController.swift */,
+				8D8639181ADC030900D2DA9F /* CheckConnectivity.swift */,
 				8D56743D1ADAA17900916C6E /* YQButton.h */,
 				8D56743E1ADAA17900916C6E /* YQButton.m */,
 				8D5673EE1AD9EE0C00916C6E /* images-2.jpeg */,
@@ -519,6 +522,7 @@
 				8D33130A1AD8DE2400C741E1 /* NSParseObject.swift in Sources */,
 				8D5674161AD9F45D00916C6E /* AFURLSessionManager.m in Sources */,
 				8D2078AA1AD8A0BE0007FD69 /* PageContentViewController.swift in Sources */,
+				8D8639191ADC030900D2DA9F /* CheckConnectivity.swift in Sources */,
 				8D5674131AD9F45D00916C6E /* AFURLConnectionOperation.m in Sources */,
 				8D56740F1AD9F45D00916C6E /* AFHTTPRequestOperationManager.m in Sources */,
 				8D94846C1ACDCF7900A06442 /* AppDelegate.swift in Sources */,

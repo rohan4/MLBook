@@ -13,11 +13,17 @@ class SettingViewController: UIViewController {
     var backButton:UIButton
     var segmentedControl: UISegmentedControl
     
+    var parentalGate: UIView
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         
         backButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
         segmentedControl = UISegmentedControl (items: ["Automatically play","Tap to play"])
+        
+        
+        parentalGate = UIView()
+        parentalGate.backgroundColor = UIColor.whiteColor()
+        parentalGate.alpha = 0.9
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         view.backgroundColor = UIColor.whiteColor()
@@ -31,6 +37,9 @@ class SettingViewController: UIViewController {
         backButton.addTarget(self, action: "backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(backButton)
         
+        
+        parentalGate.frame = CGRectMake(0,0,CGRectGetWidth(view.frame),CGRectGetHeight(view.frame))
+        view.addSubview(parentalGate)
     }
     
     

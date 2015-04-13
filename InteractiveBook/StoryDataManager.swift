@@ -38,7 +38,7 @@ class StoryDataManager: NSObject {
     func pausedSound(){
         if let tempSound = soundEffect {
             if soundEffect!.playing {
-                // soundEffect.pause()
+                soundEffect!.pause()
             }
         }
 

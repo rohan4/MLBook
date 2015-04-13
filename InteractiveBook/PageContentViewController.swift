@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
+class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate, UICollisionBehaviorDelegate {
     
     var page: Page!
     
@@ -40,6 +40,16 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
     // var settingButton: UIButton
     
     var speechSynthesizer: AVSpeechSynthesizer!
+    
+    
+    
+    var animator: UIDynamicAnimator!
+    var gravity: UIGravityBehavior!
+    
+    var collision: UICollisionBehavior!
+    
+    
+    
     
     convenience init(pageIndex:Int?) {
         self.init(nibName: nil, bundle: nil)
@@ -190,6 +200,8 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         settingView.addSubview(backButton)
         
         
+        
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -212,6 +224,34 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         if SettingDataManager.sharedInstance.getAutoPlay() && pageIndex > 0 {
             NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "autoPlaySound", userInfo: nil, repeats: false)
         }
+        
+        
+        
+        let square = UIView(frame: CGRect(x: 125, y: 100, width: 200, height: 100))
+        square.backgroundColor = UIColor.grayColor()
+        view.addSubview(square)
+        
+        let barrier = UIView(frame: CGRect(x: 0, y: 630, width: 200, height: 20))
+        barrier.backgroundColor = UIColor.clearColor()
+        view.addSubview(barrier)
+        
+        
+        animator = UIDynamicAnimator(referenceView: view)
+        gravity = UIGravityBehavior(items: [square])
+        animator.addBehavior(gravity)
+        
+        
+        // collision = UICollisionBehavior(items: [square, barrier])
+        collision = UICollisionBehavior(items: [square])
+        collision.collisionDelegate = self
+        // add a boundary that has the same frame as the barrier
+        collision.addBoundaryWithIdentifier("barrier", forPath: UIBezierPath(rect: barrier.frame))
+        collision.addBoundaryWithIdentifier("titleView", forPath: UIBezierPath(rect: titleView.frame))
+        
+        collision.translatesReferenceBoundsIntoBoundary = true
+        animator.addBehavior(collision)
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -297,5 +337,13 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         titleLabel.attributedText = NSAttributedString(string: titleLabel.text!)
     }
     
+    func collisionBehavior(behavior: UICollisionBehavior, beganContactForItem item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying, atPoint p: CGPoint) {
+        println("Boundary contact occurred")
+        let collidingView = item as! UIView
+        collidingView.backgroundColor = UIColor.yellowColor()
+        UIView.animateWithDuration(0.3) {
+            collidingView.backgroundColor = UIColor.grayColor()
+        }
+    }
     
 }
