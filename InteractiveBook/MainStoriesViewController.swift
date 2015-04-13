@@ -66,6 +66,17 @@ class MainStoriesViewController: UIViewController {
         settingButton.frame = CGRectMake(tempMiddlePosition+30, CGRectGetHeight(self.view.frame)-tempButtonHeigth-30, tempButtonWidth, tempButtonHeigth)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        
+        UIView.animateWithDuration(1.0, animations: { () -> Void in
+            self.imageView.alpha = 0.6
+        })
+
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

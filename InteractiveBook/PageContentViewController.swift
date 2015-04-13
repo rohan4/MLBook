@@ -69,6 +69,7 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         
         imageView = UIImageView()
         settingView = UIImageView()
+        settingView.hidden = false
         
         backButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
         
@@ -98,7 +99,7 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         backButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         // backButton.layer.cornerRadius = CGFloat(5.0)
         backButton.addTarget(self, action: "backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        // view.addSubview(backButton)
+        //
         
         /*
         speakButton.frame = CGRectMake(CGRectGetWidth(view.frame)-90, CGRectGetHeight(view.frame)-40, 80, 30)
@@ -184,6 +185,11 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
         
         speakButton.frame = CGRectMake(CGRectGetWidth(settingView.frame)-80, 0, 80, CGRectGetHeight(settingView.frame))
         settingView.addSubview(speakButton)
+        
+        backButton.frame = CGRectMake(0, 0, 80, CGRectGetHeight(settingView.frame))
+        settingView.addSubview(backButton)
+        
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -222,7 +228,7 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate {
     func buttonTapped(sender: UITapGestureRecognizer) {
         if (sender.state == .Ended) {
             println("worked")
-            
+            settingView.hidden = false
             
             if hasSettingView {
                 
