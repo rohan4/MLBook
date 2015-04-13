@@ -40,17 +40,17 @@ class StoryViewController: UIViewController, UIPageViewControllerDataSource, UIP
     
     func reset() {
         pageViewController = UIPageViewController()
-        self.pageViewController.dataSource = self
+        pageViewController.dataSource = self
         
-        let pageContentViewController = self.viewControllerAtIndex(ReadPagingDataManger.sharedInstance.getTempPagingNumber())
+        let pageContentViewController = viewControllerAtIndex(ReadPagingDataManger.sharedInstance.getTempPagingNumber())
         
-        self.pageViewController.setViewControllers([pageContentViewController!], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
+        pageViewController.setViewControllers([pageContentViewController!], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
         
-        self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
-        self.pageViewController.view.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
-        self.addChildViewController(pageViewController)
-        self.view.addSubview(pageViewController.view)
-        self.pageViewController.didMoveToParentViewController(self)
+        pageViewController.view.frame = CGRectMake(0, 0, view.frame.width, view.frame.height)
+        pageViewController.view.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+        addChildViewController(pageViewController)
+        view.addSubview(pageViewController.view)
+        pageViewController.didMoveToParentViewController(self)
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
@@ -62,7 +62,7 @@ class StoryViewController: UIViewController, UIPageViewControllerDataSource, UIP
         }
         
         ReadPagingDataManger.sharedInstance.updateTempPagingNumber(index)
-        return self.viewControllerAtIndex(index)
+        return viewControllerAtIndex(index)
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
@@ -74,7 +74,7 @@ class StoryViewController: UIViewController, UIPageViewControllerDataSource, UIP
         index--
         
         ReadPagingDataManger.sharedInstance.updateTempPagingNumber(index)
-        return self.viewControllerAtIndex(index)
+        return viewControllerAtIndex(index)
     }
     
     func viewControllerAtIndex(index : Int) -> UIViewController? {

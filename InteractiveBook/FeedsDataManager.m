@@ -63,6 +63,8 @@
             failureCompletion(error);
         }
         else {
+            NSLog(@"got data");
+            
             NSMutableArray *tempFeeds = [[NSMutableArray alloc] init];
             
             for (PFObject *object in objects){

@@ -109,18 +109,7 @@ class PageContentViewController: UIViewController, AVSpeechSynthesizerDelegate, 
         backButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         // backButton.layer.cornerRadius = CGFloat(5.0)
         backButton.addTarget(self, action: "backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        //
         
-        /*
-        speakButton.frame = CGRectMake(CGRectGetWidth(view.frame)-90, CGRectGetHeight(view.frame)-40, 80, 30)
-        speakButton.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleTopMargin
-        speakButton.setTitle("Play", forState: UIControlState.Normal)
-        // backButton.backgroundColor = UIColor.blackColor()
-        speakButton.setTitleColor(UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 240.0/255.0), forState: UIControlState.Normal)
-        speakButton.layer.cornerRadius = CGFloat(5.0)
-        speakButton.addTarget(self, action: "speakButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        // view.addSubview(speakButton)
-        */
         
         speakButton.setTitle("Speak", forState: UIControlState.Normal)
         // settingButton.backgroundColor = UIColor.blackColor()
