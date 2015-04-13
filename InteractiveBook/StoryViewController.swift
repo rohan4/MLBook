@@ -78,9 +78,10 @@ class StoryViewController: UIViewController, UIPageViewControllerDataSource, UIP
     }
     
     func viewControllerAtIndex(index : Int) -> UIViewController? {
-        if((index >= StoryDataManager.sharedInstance.pages.count)) {
+        if(index >= StoryDataManager.sharedInstance.pages.count) {
             return nil
         }
+        
         let pageContentViewController = PageContentViewController(pageIndex: index)
         
         let tempPage = StoryDataManager.sharedInstance.pages[index]
